@@ -1,0 +1,78 @@
+#------------------the first section of this code is what the user will see when they are logging into the application------------
+from tkinter import *
+from PIL import Image 
+
+
+
+root_window = Tk() # creates the original window
+root_window.title("Welcome to the HawkHub!") # set the title of the window
+root_window.geometry('400x530') # setting the dimensions of the window
+
+ 
+# adding a label to the root window
+lbl = Label(root_window, text = "Please enter your student ID and password:")
+lbl.grid()
+ 
+#creating input boxes to log in
+txt1 = Entry(root_window, width=10) # creating box to enter student ID
+txt1.grid(column =1, row =0)
+
+txt2 = Entry(root_window, width=10) # creating box to enter password
+txt2.grid(column =1, row =1)
+ 
+# setting up size and area of the logo that we created
+frame = Frame(root_window, width=100, height=100)
+frame.pack()
+frame.place(anchor='center', relx=0.5, rely=0.5)
+
+
+
+img = Image.open("images/HAWK HUB.jpg") # opening the image on screen
+
+def clicked(): # function to confirm that the student ID is valid
+ 
+    res = "Valid Student: " + txt1.get()  
+    lbl.configure(text = res)
+ 
+# button to confirm your student ID and password
+btn = Button(root_window, text = "Enter" ,
+             fg = "red", command=clicked)
+# Set Button Grid
+btn.grid(column=2, row=0)
+ 
+ #-------------------------- the second part of this code is where the user will be able to actually browse the app and select whatever they need ---------------
+ 
+ # creating a search box for users to describe there needs if they aren't sure which button to press
+lbl2 = Label(root, text = "Search:")
+lbl2.grid()
+
+txt = Entry(root, width=38)
+txt.grid(column =1, row =0)
+
+ 
+# creating multiple buttons for the user to select what they need
+btn1 = Button(root, text = "School resources" ,fg = "purple")
+btn1.grid(column=0, row=2)
+btn1.config(height = 5, width = 13)
+
+btn2 = Button(root, text = "Job Listings" ,fg = "purple")
+btn2.grid(column=1, row=2)
+btn2.config(height = 5, width = 13)
+
+btn3 = Button(root, text = "FAQ Board" ,fg = "purple")
+btn3.grid(column=2, row=2)
+btn3.config(height = 5, width = 13)
+
+btn4 = Button(root, text = "Map" ,fg = "purple")
+btn4.grid(column=0, row=3)
+btn4.config(height = 5, width = 13)
+
+btn5 = Button(root, text = "SafeRoute Planner" ,fg = "purple")
+btn5.grid(column=1, row=3)
+btn5.config(height = 5, width = 13)
+
+btn6 = Button(root, text = "Room Locator" ,fg = "purple")
+btn6.grid(column=2, row=3)
+btn6.config(height = 5, width = 13)
+ 
+root_window.mainloop()
