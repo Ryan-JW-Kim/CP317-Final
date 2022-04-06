@@ -1,0 +1,14 @@
+import array as arr
+def faq(str name, str question, faq_data):
+approved = true
+faq_data_temp = [];
+  if (question !in faq_data_temp):
+faq_data_temp.append(question)
+print("Question has been submitted")
+
+if (question in faq_data_temp && approved):
+faq_data.append(question)
+else:
+
+approved = false
+return faq_data;
